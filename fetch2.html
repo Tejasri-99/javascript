@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<section id="delay" style="display:flex;background-color:springgreen ;color: hotpink;">
+	</section>
+<script type="text/javascript">
+	/*fetch("https://reqres.in/api/users?delay=3")
+	.then ((res)=>{
+			console.log(res)
+			return res.json()
+	})
+	.then((jsonResponse)=>{
+		console.log(jsonResponse)
+		display (jsonResponse.data)
+	})
+	function display(delayed){
+		var block=document.getElementById("delay")
+		for (i=0;i<delayed.length;i++){
+			block.innerHTML+=`<div><p>${delayed[i].first_name}</p>
+			<p>${delayed[i].last_name}</p>
+			<img src="${delayed[i].avatar}"width="55%"/>
+			</div>`;
+	}
+}*/
+fetch("https://reqres.in/api/users",{ 
+	method:"POST",
+headers:{
+	"Content-Type":"application/json"
+},
+body:JSON.stringify({name:"ravi",age:24,gender:"male"})
+})
+.then((res)=>{
+	console.log(res)
+	if(res.status===201){
+		alert("data added successfully")
+	}
+	return res.json()
+})
+.then((update)=>{
+	console.log(update)
+})
+</script>
+</body>
+</html>
